@@ -194,7 +194,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 189191112}
-  speed: 15
+  walkSpeed: 12
+  runSpeed: 24
+  crouchSpeed: 5
   gravityConstant: -29.43
   jumpHeight: 2
   groundCheck: {fileID: 1164717772}
@@ -204,7 +206,8 @@ MonoBehaviour:
     m_Bits: 512
   crouchKey: left ctrl
   jumpKey: space
-  crouchFactor: 0.5
+  runKey: left shift
+  crouchHeight: 1.5
 --- !u!114 &189191114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2583,15 +2586,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4974c3aa5aa3dca4e847ca65904285a1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.4699993
+      value: 0.522
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4974c3aa5aa3dca4e847ca65904285a1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.66699994
+      value: -0.31
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4974c3aa5aa3dca4e847ca65904285a1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.52887344
+      value: 0.53
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 4974c3aa5aa3dca4e847ca65904285a1, type: 3}
       propertyPath: m_LocalRotation.x
