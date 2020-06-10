@@ -197,7 +197,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 189191110}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 27.92, y: 3.25, z: -39.56}
+  m_LocalPosition: {x: 27.92, y: 2.62, z: -39.56}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2100970863}
@@ -271,7 +271,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24748
+  m_Name: pb_Mesh14068
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -503,7 +503,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24768
+  m_Name: pb_Mesh14088
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -893,7 +893,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
-  impactEffect: {fileID: 244813684914312831, guid: 3b2e9e302092bca48991cc08dddfd0c5,
+  impactEffect: {fileID: 739548042608371744, guid: 6a54e31ecbb58f743b59dc207f4157b4,
     type: 3}
   damageable: 1
   objectType: human enemy
@@ -1699,7 +1699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 50
-  impactEffect: {fileID: 244813684914312831, guid: 3b2e9e302092bca48991cc08dddfd0c5,
+  impactEffect: {fileID: 739548042608371744, guid: 6a54e31ecbb58f743b59dc207f4157b4,
     type: 3}
   damageable: 0
   objectType: 
@@ -2619,7 +2619,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24814
+  m_Name: pb_Mesh14134
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6116,7 +6116,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh24736
+  m_Name: pb_Mesh21850
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
