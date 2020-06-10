@@ -1,0 +1,18 @@
+
+[Additions]:
+add ragdoll on death - done
+add firerate - done
+add gun recoil
+add bullet trail particle (similar to valorant)
+add proper hitboxes
+add bodypart hit system eg head = 20 damage body = 10 or something
+
+add gun sounds - done
+add hit sounds
+add more hit particles for different objects eg stone, wood, flesh, metal
+
+[Fixes]:
+fix crouch jittering bug - done
+
+
+[Adjustments]:

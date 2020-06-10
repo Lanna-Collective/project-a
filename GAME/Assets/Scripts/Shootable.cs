@@ -14,7 +14,38 @@ public class Shootable : MonoBehaviour {
         if (deathBehavior == "delete") {
             Destroy(gameObject);
         }
+        if (deathBehavior == "ragDoll") {
+            Destroy(gameObject, 10f);
+            GetComponent<Animator>().enabled = false;
+            setRigidBodyState(false);
+            setColliderState(true);
+        }
 
+    }
+
+    // similar to setColliderState, 
+    // sets all the rigidbodies of the children to state, while changing the parent/controller to !state, as the controller is presumeably a rigidbody controller
+    void setRigidBodyState(bool state) {
+        Rigidbody[] rigidbodies = GetComponentsInChildren<Rigidbody>();
+
+        foreach (Rigidbody rd in rigidbodies) {
+            rd.isKinematic = state;
+        }
+
+        GetComponent<Rigidbody>().isKinematic = !state;
+
+    }
+
+    // similar to setRigidBodyState,
+    // sets the bool of the colliders to state, while changing the parent/controller to !state, as the controller is presumeably a rigidbody controller
+    void setColliderState(bool state) {
+        Collider[] colliders = GetComponentsInChildren<Collider>();
+
+        foreach (Collider c in colliders) {
+            GetComponent<Collider>().enabled = state;
+        }
+
+        GetComponent<Collider>().enabled = !state;
     }
 
     public void TakeDamage(float damage) {
@@ -24,7 +55,7 @@ public class Shootable : MonoBehaviour {
         health -= damage;
         if (health <= 0) {
             if (objectType == "human enemy")
-                Die("delete");
+                Die("ragDoll");
         }
 
     }
