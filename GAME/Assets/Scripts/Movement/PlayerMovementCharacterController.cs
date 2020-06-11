@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovementCharacterController : MonoBehaviour {
+public class PlayerMovementCharacterController : MonoBehaviour
+{
     //public variables
     public CharacterController controller;
     public Transform playerCam;
@@ -29,16 +30,19 @@ public class PlayerMovementCharacterController : MonoBehaviour {
     private float moveSpeed = 12f;
     private Vector3 origCamPos;
 
-    private void Start() {
+    private void Start()
+    {
         originalHeight = controller.height;
         origCamPos = playerCam.localPosition;
     }
 
-    void Jump() {
+    void Jump()
+    {
         velocity.y = Mathf.Sqrt(-2f * jumpHeight * gravityConstant);
     }
 
-    void StartCrouch() {
+    void StartCrouch()
+    {
         controller.center = Vector3.down * (originalHeight - controller.height) / 2f;
         controller.height = crouchHeight;
 
@@ -50,10 +54,12 @@ public class PlayerMovementCharacterController : MonoBehaviour {
         crouching = true;
     }
 
-    IEnumerator EndCrouch(float duration) {
+    IEnumerator EndCrouch(float duration)
+    {
         float elapsed = 0f;
 
-        while (elapsed < duration) {
+        while (elapsed < duration)
+        {
             controller.height = Mathf.Lerp(crouchHeight, originalHeight, elapsed / duration);
             elapsed += Time.deltaTime;
             controller.center = Vector3.down * (originalHeight - controller.height) / 2f;
@@ -68,39 +74,50 @@ public class PlayerMovementCharacterController : MonoBehaviour {
         crouching = false;
     }
 
-    void StartRun() {
+    void StartRun()
+    {
         moveSpeed = runSpeed;
         running = true;
     }
 
-    void StopRun() {
+    void StopRun()
+    {
         moveSpeed = walkSpeed;
         running = false;
     }
 
     // Update is called once per frame
-    void Update() {
+    void Update()
+    {
         onGround = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        if (onGround && velocity.y < 0) {
+        if (onGround && velocity.y < 0)
+        {
             velocity.y = -2f;
         }
 
-        if (onGround && Input.GetKeyDown(jumpKey)) {
+        if (onGround && Input.GetKeyDown(jumpKey))
+        {
             Jump();
         }
 
-        if (!running && Input.GetKey(crouchKey)) {
+        if (!running && Input.GetKey(crouchKey))
+        {
             StartCrouch();
             moveSpeed = crouchSpeed;
-        } else if (crouching && !Input.GetKey(crouchKey)) {
+        }
+        else if (crouching && !Input.GetKey(crouchKey))
+        {
             StartCoroutine(EndCrouch(0.1f));
             moveSpeed = walkSpeed;
         }
 
-        if (!crouching && onGround && Input.GetKey(runKey)) {
+        if (!crouching && onGround && Input.GetKey(runKey))
+        {
             StartRun();
-        } else if (running && !Input.GetKey(runKey)) {
+        }
+        else if (running && !Input.GetKey(runKey))
+        {
             StopRun();
         }
 

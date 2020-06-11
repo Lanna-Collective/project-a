@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Respawn : MonoBehaviour {
+public class Respawn : MonoBehaviour
+{
     public float threshold;
     public Vector3 respawnPosition;
 
-    void FixedUpdate() {
+    void FixedUpdate()
+    {
         if (transform.position.y < threshold)
             transform.position = respawnPosition;
     }

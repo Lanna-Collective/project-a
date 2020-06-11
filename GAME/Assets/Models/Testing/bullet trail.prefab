@@ -117,6 +117,8 @@ MonoBehaviour:
   collisionExplosion: {fileID: 244813684914312831, guid: 3b2e9e302092bca48991cc08dddfd0c5,
     type: 3}
   speed: 400
+  blastRadius: 0.5
+  blastForce: 100
 --- !u!108 &10825254
 Light:
   m_ObjectHideFlags: 0

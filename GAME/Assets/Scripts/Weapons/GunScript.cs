@@ -32,10 +32,10 @@ public class GunScript : MonoBehaviour
 
         if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out hit, range))
         {
-            Debug.Log(hit.transform.name);
+            // Debug.Log(hit.transform.name);
             Shootable targetObject = hit.transform.GetComponent<Shootable>();
             GameObject laser = GameObject.Instantiate(m_shotPrefab, transform.position, transform.rotation) as GameObject;
-            laser.GetComponent<BulletBehavior>().setTarget(hit.point, targetObject, damage);
+            laser.GetComponent<BulletBehavior>().setTarget(hit.point, targetObject, damage, gameObject);
             GameObject.Destroy(laser, 1.5f);
         }
         currAmmo--;

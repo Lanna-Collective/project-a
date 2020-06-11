@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ThisIsComment : MonoBehaviour {
+public class ThisIsComment : MonoBehaviour
+{
     [TextArea]
     public string note = "add comments here";
 
