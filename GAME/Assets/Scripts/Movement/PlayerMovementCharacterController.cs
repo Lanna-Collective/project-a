@@ -45,7 +45,7 @@ public class PlayerMovementCharacterController : MonoBehaviour {
         float newCamPos = crouching ? origCamPos.y - crouchCamIncrement : origCamPos.y;
         Vector3 newPos = new Vector3(playerCam.localPosition.x, newCamPos, playerCam.localPosition.z);
 
-        playerCam.localPosition = Vector3.Lerp(playerCam.localPosition, newPos, Time.deltaTime * 3);
+        playerCam.localPosition = Vector3.Lerp(playerCam.localPosition, newPos, Time.deltaTime * 5);
 
         crouching = true;
     }
@@ -61,7 +61,7 @@ public class PlayerMovementCharacterController : MonoBehaviour {
             float newCamPos = crouching ? origCamPos.y + crouchCamIncrement : origCamPos.y;
             Vector3 newPos = new Vector3(playerCam.localPosition.x, newCamPos, playerCam.localPosition.z);
 
-            playerCam.localPosition = Vector3.Lerp(playerCam.localPosition, newPos, Time.deltaTime * 3);
+            playerCam.localPosition = Vector3.Lerp(playerCam.localPosition, newPos, Time.deltaTime * 2);
             yield return null;
         }
         controller.height = originalHeight;

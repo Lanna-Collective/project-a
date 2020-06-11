@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shootable : MonoBehaviour {
+public class Shootable : MonoBehaviour
+{
     // Start is called before the first frame update
 
     public float health = 50f;
@@ -10,25 +11,30 @@ public class Shootable : MonoBehaviour {
     public bool damageable;
     public string objectType;
 
-    void Die(string deathBehavior) {
-        if (deathBehavior == "delete") {
+    void Die(string deathBehavior)
+    {
+        if (deathBehavior == "delete")
+        {
             Destroy(gameObject);
         }
-        if (deathBehavior == "ragDoll") {
-            Destroy(gameObject, 10f);
+        if (deathBehavior == "ragDoll")
+        {
             GetComponent<Animator>().enabled = false;
             setRigidBodyState(false);
             setColliderState(true);
+            Destroy(gameObject, 10f);
         }
 
     }
 
     // similar to setColliderState, 
     // sets all the rigidbodies of the children to state, while changing the parent/controller to !state, as the controller is presumeably a rigidbody controller
-    void setRigidBodyState(bool state) {
+    void setRigidBodyState(bool state)
+    {
         Rigidbody[] rigidbodies = GetComponentsInChildren<Rigidbody>();
 
-        foreach (Rigidbody rd in rigidbodies) {
+        foreach (Rigidbody rd in rigidbodies)
+        {
             rd.isKinematic = state;
         }
 
@@ -38,30 +44,34 @@ public class Shootable : MonoBehaviour {
 
     // similar to setRigidBodyState,
     // sets the bool of the colliders to state, while changing the parent/controller to !state, as the controller is presumeably a rigidbody controller
-    void setColliderState(bool state) {
+    void setColliderState(bool state)
+    {
         Collider[] colliders = GetComponentsInChildren<Collider>();
 
-        foreach (Collider c in colliders) {
+        foreach (Collider c in colliders)
+        {
             GetComponent<Collider>().enabled = state;
         }
 
         GetComponent<Collider>().enabled = !state;
     }
 
-    public void TakeDamage(float damage) {
-        if (!damageable) {
+    public void TakeDamage(float damage)
+    {
+        if (!damageable)
+        {
             return;
         }
         health -= damage;
-        if (health <= 0) {
-            if (objectType == "human enemy")
-                Die("ragDoll");
-        }
-
     }
 
     // Update is called once per frame
-    void Update() {
-
+    void Update()
+    {
+        if (health <= 0)
+        {
+            if (objectType == "human enemy")
+                Die("ragDoll");
+        }
     }
 }
