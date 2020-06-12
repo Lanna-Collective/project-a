@@ -10,14 +10,15 @@ public abstract class Shootable : MonoBehaviour
     public GameObject impactEffect;
     public bool damageable;
 
-    [Tooltip("Delete = 0, HumanEnemy = 1, Explosive = 2")]
+    [Tooltip("Delete = 0, HumanEnemy = 1, Explosive = 2, Enviroment = 3")]
     public int objectType;
 
     public enum objectTypeEnum
     {
         delete,         //0
         humanEnemy,     //1
-        Explosives,     //2
+        explosives,     //2
+        enviroment      //3
     }
     void Start()
     {
