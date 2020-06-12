@@ -21,8 +21,9 @@ public class GunScript : MonoBehaviour
     public AudioSource gunClick;
 
     private float timer = 0f;
-    private float autoTimer = 0f;
-    private bool firstShot = true;
+    //private float autoTimer = 0f;
+    private float lastShot = 0f;
+    //private bool firstShot = true;
     bool onCooldown = false;
 
     private void Start()
@@ -52,6 +53,8 @@ public class GunScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timer += Time.deltaTime;
+
         if (isAuto)
         {
             FullAutoUpdate();
@@ -65,84 +68,36 @@ public class GunScript : MonoBehaviour
     // For full auto guns
     void FullAutoUpdate()
     {
-
         if (Input.GetButton("Fire1"))
         {
-            ShootingTimer();
+            FireTimer();
         }
-        /*else
-        {
-            timer = 0f;
-            firstShot = true;
-        }*/
-
     }
 
     // For semi auto guns
     void SemiAutoUpdate()
     {
-        if (timer >= 1.0f / fireRatePerSecond)
+        if (Input.GetButtonDown("Fire1"))
         {
-            onCooldown = false;
+            FireTimer();
         }
+    }
 
-        if (onCooldown)
+    void FireTimer()
+    {
+        if (currAmmo > 0)
         {
-            timer += Time.deltaTime;
+            if (timer > ((1.0f / fireRatePerSecond) + lastShot))
+            {
+                Shoot();
+                lastShot = timer;
+            }
         }
         else
         {
-            timer = 0f;
-        }
-
-        if (Input.GetButtonDown("Fire1"))
-        {
-            if ((currAmmo > 0))
-            {
-                if (!onCooldown)
-                {
-                    Shoot();
-                    onCooldown = true;
-                }
-            }
-            else
-            {
-                gunEmpty();
-            }
+            gunEmpty();
         }
     }
-
-    void ShootingTimer()
-    {
-        //start timer
-        autoTimer += Time.deltaTime;
-        if (firstShot)
-        {
-            if (currAmmo > 0)
-            {
-                Shoot();
-                firstShot = false;
-            }
-            else
-            {
-                gunEmpty();
-            }
-        }
-
-        if (autoTimer >= 1.0f / fireRatePerSecond)
-        {
-            if (currAmmo > 0)
-            {
-                Shoot();
-                autoTimer = 0f;
-            }
-            else
-            {
-                gunEmpty();
-            }
-        }
-    }
-
 
     void gunEmpty()
     {
