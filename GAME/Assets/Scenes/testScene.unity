@@ -370,6 +370,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   threshold: -40
   respawnPosition: {x: 27.92, y: 2, z: -29.81887}
+  rb: {fileID: 0}
 --- !u!114 &189191115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1787,7 +1788,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 14
+  m_Constraints: 94
   m_CollisionDetection: 0
 --- !u!1 &991397064 stripped
 GameObject:
@@ -3963,7 +3964,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 14
+  m_Constraints: 94
   m_CollisionDetection: 0
 --- !u!1001 &1373005702
 PrefabInstance:
@@ -4127,6 +4128,23 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 35bcdd19e8ab0154f8067cebde611a1f, type: 3}
+--- !u!114 &1488374097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488374091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f989f16b7d3943d48830ca1925f1ddda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 1000
+  impactEffect: {fileID: 739548042608371744, guid: 6a54e31ecbb58f743b59dc207f4157b4,
+    type: 3}
+  damageable: 1
+  objectType: 0
 --- !u!1 &1525690810 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1671368630121230, guid: f114790dd73d5ba46899308b88880365,
@@ -4360,6 +4378,7 @@ GameObject:
   - component: {fileID: 1591054885}
   - component: {fileID: 1591054884}
   - component: {fileID: 1591054883}
+  - component: {fileID: 1591054888}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -4457,6 +4476,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1591054888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1591054882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7041066452dd39b4db88a48047962a35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  threshold: -40
+  respawnPosition: {x: 23.56, y: 20, z: -28.00577}
+  rb: {fileID: 0}
 --- !u!1 &1645911163
 GameObject:
   m_ObjectHideFlags: 0
@@ -6863,7 +6897,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 94
   m_CollisionDetection: 0
 --- !u!1 &1870539097
 GameObject:
