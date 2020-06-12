@@ -148,7 +148,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7798439604187076839}
   - component: {fileID: 7798439604187076836}
-  - component: {fileID: 3805180276979212707}
   - component: {fileID: 7798439604187076634}
   - component: {fileID: 7798439604187076635}
   m_Layer: 0
@@ -192,23 +191,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3805180276979212707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7798439604187076632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5094eca039434564cba2500a199c321b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  impactEffect: {fileID: 739548042608371744, guid: 6a54e31ecbb58f743b59dc207f4157b4,
-    type: 3}
-  damageable: 1
-  objectType: 1
 --- !u!136 &7798439604187076634
 CapsuleCollider:
   m_ObjectHideFlags: 0

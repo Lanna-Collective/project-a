@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shootable : MonoBehaviour
+public abstract class Shootable : MonoBehaviour
 {
     // Start is called before the first frame update
 
@@ -13,7 +13,7 @@ public class Shootable : MonoBehaviour
     [Tooltip("Delete = 0, HumanEnemy = 1, Explosive = 2")]
     public int objectType;
 
-    enum objectTypeEnum
+    public enum objectTypeEnum
     {
         delete,         //0
         humanEnemy,     //1
@@ -21,12 +21,6 @@ public class Shootable : MonoBehaviour
     }
     void Start()
     {
-        if (objectType == (int)objectTypeEnum.humanEnemy)
-        {
-            setRigidBodyState(true);
-            setColliderState(false);
-            GetComponent<Animator>().enabled = true;
-        }
 
     }
 
@@ -35,55 +29,8 @@ public class Shootable : MonoBehaviour
     /// </summary>
     /// <param name="deathBehavior">objectTypeEnum.</para  m>
     /// <returns>Returns an integer based on the passed value.</returns>
-    void Die(string deathBehavior)
-    {
-        if (deathBehavior == "delete")
-        {
-            Destroy(gameObject);
-        }
-        if (deathBehavior == "ragDoll")
-        {
-            GetComponent<Animator>().enabled = false;
-            setRigidBodyState(false);
-            setColliderState(true);
-            Destroy(gameObject, 20f);
-        }
-
-    }
-
-    /// <summary>
-    // sets all the rigidbodies of the children to state, while changing the parent/controller to !state, as the controller is presumeably a rigidbody controller
-    // sister function to setColliderState, 
-    /// </summary>// 
-    void setRigidBodyState(bool state)
-    {
-        Rigidbody[] rigidbodies = GetComponentsInChildren<Rigidbody>();
-
-        foreach (Rigidbody rd in rigidbodies)
-        {
-            rd.isKinematic = state;
-        }
-
-        GetComponent<Rigidbody>().isKinematic = !state;
-
-    }
-
-    /// <summary>
-    // sister function to setRigidBodyState,
-    // sets the bool of the colliders to state, while changing the parent/controller to !state, as the controller is presumeably a rigidbody controller
-    /// </summary>// 
-    void setColliderState(bool state)
-    {
-        Collider[] colliders = GetComponentsInChildren<Collider>();
-
-        foreach (Collider c in colliders)
-        {
-            GetComponent<Collider>().enabled = state;
-        }
-
-        GetComponent<Collider>().enabled = !state;
-    }
-
+    public abstract void Die();
+   
     public void TakeDamage(float damage)
     {
         if (!damageable)
@@ -93,10 +40,7 @@ public class Shootable : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
-            if (objectType == (int)objectTypeEnum.humanEnemy)
-                Die("ragDoll");
+            Die();
         }
     }
-
-
 }
